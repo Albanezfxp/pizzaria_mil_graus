@@ -27,7 +27,7 @@ export default function Header() {
           <nav id="navMenu">
             <div id="navContainer">
               <ul>
-                <LiNav link="/" page="Home" />
+                <LiNav link="/pizzaria_mil_graus" page="Home" />
                 <p>|</p>
                 <LiNav link="/cardapio" page="Cardapio" /> <p>|</p>
                 <LiNav link="/localizacao" page="Localização" /> <p>|</p>
