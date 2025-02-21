@@ -32,3 +32,21 @@
 .floatingButton > img {
   width: 40px;
 }
+
+#floatingButtonIcon {
+  display: none;
+}
+
+
+@media (max-width: 600px) {
+  .floatingButton {
+display: none;
+  }
+  #floatingButtonIcon {
+    display: flex;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+  }
+
+}

@@ -1,8 +1,9 @@
 import Header from "../Home/components/Header/Header";
 import "./Promocoes.css";
 import imgPizza from "../../assets/pizza.png";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import FloatingButton from "../Home/components/FloatingButton/FloatingButton";
+import Footer from "../Footer/Footer";
 
 export default function Promocoes() {
   const [backgroundColor, setBackgroundColor] = useState("#ffcb6b");
@@ -10,7 +11,10 @@ export default function Promocoes() {
   const [displayFirstPromo, setDisplayFirstPromo] = useState("flex");
   const [animationState, setAnimationState] = useState("");
 
-  function chageRightPromo(ev: any) {
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+
+  function changeRightPromo(ev: any) {
     ev.preventDefault();
     setAnimationState("mainPromocoesContainer-enter");
     setTimeout(() => {
@@ -21,7 +25,7 @@ export default function Promocoes() {
     }, 500);
   }
 
-  function chageLeftPromo(ev: any) {
+  function changeLeftPromo(ev: any) {
     ev.preventDefault();
     setAnimationState("mainPromocoesContainer-exit");
 
@@ -33,11 +37,40 @@ export default function Promocoes() {
     }, 500);
   }
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current && touchEndX.current) {
+      const deltaX = touchStartX.current - touchEndX.current;
+
+      if (Math.abs(deltaX) > 50) {
+        if (deltaX > 0) {
+          changeLeftPromo(new Event(""));
+        } else {
+          changeRightPromo(new Event(""));
+        }
+      }
+    }
+
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
   return (
     <>
       <div className="Promocoes" style={{ backgroundColor: backgroundColor }}>
         <Header />
-        <main>
+        <main
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           <div
             id="onePromo"
             className={`mainPromocoesContainer ${animationState}`}
@@ -60,7 +93,7 @@ export default function Promocoes() {
               height="24"
               viewBox="0 0 64 64"
               fill="#fafafa"
-              onClick={chageRightPromo}
+              onClick={changeRightPromo}
               style={{ cursor: "pointer" }}
             >
               <path d="M28.373,13.546c-0.803-0.758-2.068-0.722-2.827,0.081c-0.758,0.803-0.722,2.069,0.081,2.827L42.087,32l-16.46,15.546 c-0.803,0.758-0.839,2.024-0.081,2.827C25.939,50.79,26.469,51,27,51c0.493,0,0.986-0.181,1.373-0.546l18-17 C46.773,33.076,47,32.55,47,32s-0.227-1.076-0.627-1.454L28.373,13.546z" />
@@ -73,9 +106,9 @@ export default function Promocoes() {
             style={{ display: displaySecondPromo }}
           >
             <div id="textPromocoesContainer">
-              <h1>Promoção Pizza G + Pizza P</h1>
+              <h1 id="titleSecondPromo">Promoção Pizza G + Pizza P</h1>
               <p>
-                1 Pizza Grande + 1 Pizza Pequena por apenas R$ 79,99! <br />{" "}
+                1 Pizza Grande + 1 Pizza Pequena por apenas <span id="valueCustom">R$ 79,99!</span> <br />{" "}
                 Sabor e economia em um só combo! Não deixe passar essa chance de
                 aproveitar com quem você ama.
                 <br />
@@ -91,7 +124,7 @@ export default function Promocoes() {
               height="24"
               viewBox="0 0 64 64"
               fill="#fafafa"
-              onClick={chageLeftPromo}
+              onClick={changeLeftPromo}
               style={{ cursor: "pointer" }}
               transform="matrix(-1, 0, 0, 1, 0, 0)"
             >
@@ -101,6 +134,7 @@ export default function Promocoes() {
           </div>
         </main>
         <FloatingButton />
+        <Footer/>
       </div>
     </>
   );

@@ -1,3 +1,4 @@
+/* Estilos globais */
 * {
   margin: 0;
   padding: 0;
@@ -32,9 +33,6 @@
 #homeMainContainer {
   position: relative;
   z-index: 2;
-}
-
-#homeMainContainer {
   margin-top: 10px;
   display: flex;
   flex-direction: row-reverse;
@@ -60,28 +58,25 @@
 }
 
 #sectionContainer {
-  width: 500px;
+  max-width: 500px;
   line-height: 1.6;
   color: #fff;
-  font-size: 22px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 1.375rem;
+  padding: 0 1rem;
 }
 
 #sectionContainer > p {
   color: #ebe6e6;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
 }
 
 #mil {
   color: red;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-weight: bolder;
 }
 #graus {
   color: rgb(227, 148, 2);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-weight: 700;
 }
 
@@ -116,102 +111,110 @@
     opacity: 1;
   }
 }
+
 #bannerHome {
   animation: fadeIn 1s ease-out forwards, float 3s ease-in-out infinite;
 }
+
 /* Adicionar animação à seção */
 #sectionContainer {
   animation: fadeIn 1s ease-out forwards;
 }
 
 /* body responsividade */
-@media (min-width: 320px) {
+@media (max-width: 320px) {
   #sectionContainer {
-    width: 280px;
+    width: 90%;
     text-align: justify;
   }
-  #sectionContainer p {
-    font-size: 18px;
-    line-height: 1.6;
+
+  #sectionContainer > p {
+    font-size: 0.5rem;
   }
   #sectionContainer h1 {
     margin-bottom: 20px;
-    font-size: 27px;
+    font-size: 1.6875rem;
     line-height: 1.3;
     text-align: center;
   }
   #bannerHome img {
-    height: 300px;
+    width: 250px;
   }
 }
+
 @media (min-width: 375px) {
   #sectionContainer {
-    width: 325px;
+    width: 90%;
     text-align: justify;
   }
   #sectionContainer p {
-    font-size: 18px;
+    font-size: 1.125rem;
     line-height: 1.6;
   }
   #sectionContainer h1 {
     margin-bottom: 20px;
-    font-size: 27px;
+    font-size: 1.6875rem;
     line-height: 1.3;
     text-align: center;
   }
-  #bannerHome img {
-    height: 300px;
-  }
 }
+
 @media (max-width: 425px) {
   #homeMainContainer {
-    height: 100vh;
+    height: auto;
     flex-direction: column-reverse;
+    gap: 0px;
   }
   #sectionContainer {
-    width: 300px;
+    width: 90%;
     text-align: justify;
   }
   #sectionContainer p {
-    font-size: 18px;
+    font-size: 1.125rem;
     line-height: 1.6;
   }
   #sectionContainer h1 {
     margin-bottom: 20px;
-    font-size: 27px;
+    font-size: 1.6875rem;
     line-height: 1.3;
     text-align: center;
   }
-  #bannerHome img {
-    height: 300px;
-  }
 }
+
 @media (min-width: 768px) {
+  #homeMainContainer {
+    height: 100vh;
+  }
   #sectionContainer {
-    width: 350px;
+    width: 70%;
     text-align: justify;
   }
   #sectionContainer p {
-    font-size: 18px;
+    font-size: 1.125rem;
     line-height: 1.6;
   }
   #sectionContainer h1 {
     margin-bottom: 20px;
-    font-size: 27px;
+    font-size: 1.6875rem;
     line-height: 1.3;
     text-align: center;
   }
   #bannerHome img {
-    height: 400px;
+    width: 350px;
+    height: 350px;
   }
 }
+
 @media (min-width: 1024px) {
+  #homeMainContainer {
+    height: 75vh;
+  }
   #sectionContainer {
     width: 500px;
-    font-size: 22px;
+    font-size: 1.375rem;
   }
-  #sectionContainer h1{
-    font-size: 38px;
+  #sectionContainer h1 {
+    font-size: 2.375rem;
     text-align: start;
   }
   #bannerHome img {

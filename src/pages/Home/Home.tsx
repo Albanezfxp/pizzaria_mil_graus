@@ -2,6 +2,7 @@ import "./Home.css";
 import bannerHome from "../../assets/ai-generated-delicious-pepperoni-pizza-with-melted-cheese-png__1_-removebg-preview.png";
 import Header from "./components/Header/Header";
 import FloatingButton from "./components/FloatingButton/FloatingButton";
+import Footer from "../Footer/Footer";
 export default function Home() {
   return (
     <>
@@ -10,7 +11,7 @@ export default function Home() {
         <main>
           <div id="homeMainContainer">
             <div id="bannerHome">
-              <img src={bannerHome} alt="Pizza" />
+              <img src={bannerHome} alt="Pizza" id="imgBannerItem"/>
             </div>
             <section>
               <div id="sectionContainer">
@@ -30,6 +31,7 @@ export default function Home() {
           </div>
         </main>
         <FloatingButton />
+      <Footer/>
       </div>
     </>
   );

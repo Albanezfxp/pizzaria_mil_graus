@@ -3,6 +3,7 @@ import "./Contato.css";
 import instagramLogo from "../../assets/icons8-instagram-logo-300.png";
 import whatsappLogo from "../../assets/icons8-whatsapp-logo-300.png";
 import FloatingButton from "../Home/components/FloatingButton/FloatingButton";
+import Footer from "../Footer/Footer";
 export default function Contato() {
   return (
     <>
@@ -47,6 +48,7 @@ export default function Contato() {
           </div>
         </main>
         <FloatingButton />
+        <Footer/>
       </div>
     </>
   );

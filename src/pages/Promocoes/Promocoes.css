@@ -39,6 +39,8 @@
   justify-content: center;
 }
 
+
+
 #imgPromocoesContainer > img {
   width: 500px;
   animation: float 5s ease-in-out infinite;
@@ -81,8 +83,10 @@
 }
 
 @media (max-width: 768px) {
+
   .mainPromocoesContainer {
     flex-direction: column;
+    align-items: center;
     padding: 10px;
     padding-top: 25px;
     gap: 10vh;
@@ -90,6 +94,9 @@
   }
 
   #textPromocoesContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     font-size: 16px;
     line-height: 1.4;
@@ -98,7 +105,7 @@
 
   #textPromocoesContainer > p {
     font-size: 18px;
-    width: 700px;
+    width: 650px;
     text-align: center;
   }
 
@@ -107,11 +114,15 @@
   }
 
   #secondPromo {
-    flex-direction: column-reverse;
+    flex-direction: column;
+
+  }
+  #onePromo {
+    flex-direction: column;
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 425px )  {
   .mainPromocoesContainer {
     flex-direction: column;
     padding: 10px;
@@ -123,6 +134,8 @@
   #textPromocoesContainer {
     width: 100%;
     font-size: 16px;
+    flex-direction: column;
+    align-items: center;
     line-height: 1.4;
     text-align: center;
   }
@@ -136,9 +149,11 @@
   #imgPromocoesContainer > img {
     width: 90%;
   }
-
   #secondPromo {
-    flex-direction: column-reverse;
+    flex-direction: column;
+  }
+  #onePromo {
+    flex-direction: column;
   }
 }
 
@@ -155,6 +170,8 @@
     width: 100%;
     font-size: 16px;
     line-height: 1.4;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
   }
 
@@ -171,6 +188,13 @@
   #secondPromo {
     flex-direction: column-reverse;
   }
+  
+  #secondPromo {
+    flex-direction: column;
+  }
+  #onePromo {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 320px) {
@@ -185,6 +209,8 @@
   #textPromocoesContainer {
     width: 100%;
     font-size: 16px;
+    flex-direction: column;
+    align-items: center;
     line-height: 1.4;
     text-align: center;
   }
@@ -200,6 +226,10 @@
   }
 
   #secondPromo {
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
+  #onePromo {
+    flex-direction: column;
+  }
+
 }
