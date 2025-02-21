@@ -41,7 +41,7 @@ export default function Header() {
       <nav id={isMenuOpen ? "navMenuOpen" : "navMenuClose"}>
         <div id="navMenuOpenContainer">
           <ul>
-           <LiNav link="/" page="Home" />
+           <LiNav link="/pizzaria_mil_graus" page="Home" />
             <LiNav link="/cardapio" page="Cardapio" />
             <LiNav link="/localizacao" page="Localização" />
             <LiNav link="/promocoes" page="Promoções" />
