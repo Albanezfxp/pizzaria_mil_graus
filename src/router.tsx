@@ -7,7 +7,7 @@ import Contato from "./pages/Contato/Contato";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/pizzaria_mil_graus",
     element: <Home />,
   },
   {
