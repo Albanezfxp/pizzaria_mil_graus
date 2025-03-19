@@ -45,11 +45,11 @@ export default function Home() {
 
         if (Math.abs(deltaX) > Math.abs(deltaY)) {
           e.preventDefault();
-          if (deltaX > 50) {
+          if (deltaX > 100) {
             setCurrentImageIndex(
               (prev) => (prev - 1 + images.length) % images.length
             );
-          } else if (deltaX < -50) {
+          } else if (deltaX < -100) {
             setCurrentImageIndex((prev) => (prev + 1) % images.length);
           }
         }
