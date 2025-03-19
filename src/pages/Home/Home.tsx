@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Home.css";
 import bannerHome from "../../assets/ai-generated-delicious-pepperoni-pizza-with-melted-cheese-png__1_-removebg-preview.png";
 import Header from "./components/Header/Header";
@@ -15,6 +15,63 @@ export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const images = [img1, img2, img3, img4, img5];
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!isModalOpen) return;
+
+      if (e.key === "ArrowRight") {
+        setCurrentImageIndex((prev) => (prev + 1) % images.length);
+      } else if (e.key === "ArrowLeft") {
+        setCurrentImageIndex(
+          (prev) => (prev - 1 + images.length) % images.length
+        );
+      } else if (e.key === "Escape") {
+        setIsModalOpen(false);
+      }
+    };
+
+    const handleTouchStart = (e: TouchEvent) => {
+      if (!isModalOpen) return;
+      const touch = e.touches[0];
+      const startX = touch.clientX;
+      const startY = touch.clientY;
+
+      const handleTouchMove = (e: TouchEvent) => {
+        if (!isModalOpen) return;
+        const touch = e.touches[0];
+        const deltaX = touch.clientX - startX;
+        const deltaY = touch.clientY - startY;
+
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+          e.preventDefault();
+          if (deltaX > 50) {
+            setCurrentImageIndex(
+              (prev) => (prev - 1 + images.length) % images.length
+            );
+          } else if (deltaX < -50) {
+            setCurrentImageIndex((prev) => (prev + 1) % images.length);
+          }
+        }
+      };
+
+      const handleTouchEnd = () => {
+        document.removeEventListener("touchmove", handleTouchMove);
+        document.removeEventListener("touchend", handleTouchEnd);
+      };
+
+      document.addEventListener("touchmove", handleTouchMove);
+      document.addEventListener("touchend", handleTouchEnd);
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("touchstart", handleTouchStart);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("touchstart", handleTouchStart);
+    };
+  }, [isModalOpen, images.length]);
 
   const openModal = () => {
     setIsModalOpen(true);
