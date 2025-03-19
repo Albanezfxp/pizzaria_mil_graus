@@ -1,10 +1,39 @@
+import React, { useState } from "react";
 import "./Home.css";
 import bannerHome from "../../assets/ai-generated-delicious-pepperoni-pizza-with-melted-cheese-png__1_-removebg-preview.png";
 import Header from "./components/Header/Header";
 import FloatingButton from "./components/FloatingButton/FloatingButton";
 import Footer from "../Footer/Footer";
+import { FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
+import img1 from "../../assets/IMG_2023 (2).jpg";
+import img2 from "../../assets/IMG_2024 (1).jpg";
+import img3 from "../../assets/IMG_2025 (1).jpg";
+import img4 from "../../assets/IMG_2027 (1).jpeg";
+import img5 from "../../assets/IMG_2026 (1).jpeg";
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = [img1, img2, img3, img4, img5];
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const nextImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
   return (
     <div className="home-container">
       <Header />
@@ -20,7 +49,9 @@ export default function Home() {
               com ingredientes frescos e assadas em forno a lenha, garantindo
               uma crocância e aroma únicos.
             </p>
-            <button className="cta-button">Ver Cardápio</button>
+            <button className="cta-button" onClick={openModal}>
+              Ver Cardápio
+            </button>
           </div>
           <div className="hero-image">
             <img
@@ -49,6 +80,30 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      {isModalOpen && (
+        <div className="modal" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={closeModal}>
+              <FaTimes />
+            </button>
+            <img
+              src={images[currentImageIndex]}
+              alt="Cardápio"
+              className="modal-img"
+            />
+            <div className="modal-nav">
+              <button className="modal-nav-btn prev" onClick={prevImage}>
+                <FaChevronLeft />
+              </button>
+              <button className="modal-nav-btn next" onClick={nextImage}>
+                <FaChevronRight />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <FloatingButton />
       <Footer />
     </div>
