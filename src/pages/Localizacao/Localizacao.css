@@ -1,204 +1,289 @@
-.Localizacao {
-  margin: 0px;
-  padding: 0px;
+.localizacao-container {
   min-height: 100vh;
-  background-image: url("../../assets/a393acd1-1de1-4274-adc8-ed6f037a4751.jpg");
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  color: #ffffff;
+}
+
+.localizacao-main {
+  padding-top: 80px;
+}
+
+.localizacao-hero {
+  height: 300px;
+  background-image: url('../../assets/pizza-bg.jpg');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   position: relative;
 }
 
-.Localizacao::before {
-  content: "";
+.localizacao-hero::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+}
+
+.localizacao-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, #ff6b6b, #ffcb6b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.localizacao-description {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.localizacao-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.localizacao-info h2,
+.como-chegar h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.info-icon {
+  font-size: 2rem;
+  color: #ff6b6b;
+  margin-bottom: 1rem;
+}
+
+.info-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.info-card p,
+.info-card a {
+  color: #cccccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.info-card a:hover {
+  color: #ff6b6b;
+}
+
+.localizacao-mapa {
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.331);
-  backdrop-filter: blur(2px);
-  z-index: 1;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-#mainLocalizacaoContainer {
-  position: relative;
-  z-index: 2;
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 75vh;
+.localizacao-mapa iframe {
   width: 100%;
-  flex-direction: row;
+  height: 100%;
+  min-height: 600px;
+  border: none;
+  display: block;
 }
 
-#textLocalizacaoContainer {
-  width: 500px;
-  line-height: 1.6;
-  color: #fff;
-  font-size: 22px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.como-chegar {
+  padding: 4rem 2rem;
+  background: rgba(0, 0, 0, 0.2);
 }
 
-#textLocalizacaoContainer > p {
-  color: #ebe6e6;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-size: 20px;
-  animation: fadeOut 1s ease-in;
-  flex-direction: row-reverse;
+.instrucoes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-#mapLocalizacaoContainer {
-  display: flex;
-  flex-direction: row;
-  gap: 15px;
-  align-items: center;
-  justify-content: center;
-  animation: fadeIn 1s ease-out forwards;
+.instrucao-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-#map {
-  border: 3px solid white;
+.instrucao-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-#mapLocalizacaoContainer > a {
-  color: #0000ba;
+.instrucao-icon {
+  font-size: 2.5rem;
+  color: #ff6b6b;
+  margin-bottom: 1rem;
 }
 
-#mapLocalizacaoContainer > a:hover {
-  color: #0000ff;
+.instrucao-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateX(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.instrucao-card p {
+  color: #cccccc;
+  margin-bottom: 1rem;
 }
 
-@keyframes fadeOut {
-  0% {
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
- }
+.instrucao-card ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
 }
 
-@media (max-width: 1024px){
-  #mainLocalizacaoContainer{
-    height: 100vh;
-  }
+.instrucao-card ul li {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
 }
 
-@media (max-width: 425px){
-  #textLocalizacaoContainer{
-    width: 280px;
-    font-size: 10px;
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
+.instrucao-card ul li::before {
+  content: '•';
+  color: #ff6b6b;
+  position: absolute;
+  left: 0;
+}
+
+@media (max-width: 1024px) {
+  .localizacao-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
-  #map iframe {  
-    width: 250px;
-    height: 250px;
-    align-items: center;
-  }
-  #map{
-    height: 250px;
-  }
-  #mapLocalizacaoContainer{
-    flex-direction: column;
-  }
-  #mainLocalizacaoContainer{
-    flex-direction: column;
-    height: 100vh;
-  }
-  #mapLocalizacaoContainer > a {
-    text-align: center;
-    color: aqua;
-  }
-  #textLocalizacaoContainer > p{
-    font-size: 14px;
-    text-align: justify;
-  }
-  #textLocalizacaoContainer > h1{
-    font-size: 24px;
+
+  .instrucoes-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (min-width: 425px){
-  #textLocalizacaoContainer{
-    width: 280px;
-    font-size: 10px;
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.5rem;
   }
-  #map iframe {  
-    width: 250px;
-    height: 250px;
-    align-items: center;
+
+  .localizacao-description {
+    font-size: 1rem;
   }
-  #map{
-    height: 250px;
+
+  .info-cards {
+    grid-template-columns: 1fr;
   }
-  #mapLocalizacaoContainer{
-    flex-direction: column;
+
+  .instrucoes-grid {
+    grid-template-columns: 1fr;
   }
-  #mainLocalizacaoContainer{
-    height: 100vh;
-  }
-  #mapLocalizacaoContainer > a {
-    text-align: center;
-    color: aqua;
-    font-size: 13px;
-  }
-  #textLocalizacaoContainer > p{
-    font-size: 14px;
-    text-align: justify;
+
+  .mapa-container,
+  .mapa-container iframe,
+  .localizacao-mapa,
+  .localizacao-mapa iframe {
+    min-height: 400px;
   }
 }
 
-@media (min-width: 1024px){
-  #textLocalizacaoContainer{
-    width: 500px;
-    font-size: 10px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+@media (max-width: 480px) {
+  .localizacao-hero {
+    height: 200px;
   }
-  #map iframe {  
-    width: 350px;
-    height: 350px;
-    align-items: center;
+
+  .section-title {
+    font-size: 2rem;
   }
-  #map{
-    height: 350px;
+
+  .localizacao-description {
+    font-size: 0.9rem;
   }
-  #mapLocalizacaoContainer{
-    flex-direction: column;
+
+  .localizacao-info h2,
+  .como-chegar h2 {
+    font-size: 1.5rem;
   }
-  #mainLocalizacaoContainer{
-    height: 75vh;
+
+  .info-card,
+  .instrucao-card {
+    padding: 1.5rem;
   }
-  #mapLocalizacaoContainer > a {
-    text-align: center;
-    color: aqua;
-    font-size: 13px;
+
+  .instrucao-icon {
+    font-size: 2rem;
   }
-  #textLocalizacaoContainer > p{
-    font-size: 22px;
-    text-align: justify;
+
+  .instrucao-card h3 {
+    font-size: 1.2rem;
   }
-  #textLocalizacaoContainer > h1{
-    font-size: 44px;
-    text-align: start;
+
+  .mapa-container,
+  .mapa-container iframe,
+  .localizacao-mapa,
+  .localizacao-mapa iframe {
+    min-height: 300px;
   }
+}
+
+.mapa-container {
+  width: 100%;
+  height: 100%;
+  min-height: 600px;
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.mapa-container iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 600px;
+  border: none;
+  display: block;
 }

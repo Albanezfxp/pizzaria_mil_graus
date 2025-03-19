@@ -191,6 +191,13 @@
     width: 100%;
     font-size: 18px;
     line-height: 1.4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  #textCardapioContainer > p {
+    width: 350px;
   }
 
   #imgCardapioItem {
@@ -228,4 +235,19 @@
     width: 80%;
     animation: fadeOut 1s ease-out;
   }
+}
+.modal-content {
+  transition: transform 0.5s ease-in-out;
+}
+
+.modal-enter {
+  transform: translateX(100%);
+}
+
+.modal-exit {
+  transform: translateX(-100%);
+}
+
+.modal-active {
+  transform: translateX(0);
 }

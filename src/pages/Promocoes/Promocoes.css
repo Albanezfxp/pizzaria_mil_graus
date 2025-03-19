@@ -233,3 +233,274 @@
   }
 
 }
+
+.promocoes-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  color: #ffffff;
+}
+
+.promocoes-main {
+  padding-top: 80px;
+}
+
+.promocoes-hero {
+  height: 300px;
+  background-image: url('../../assets/pizza-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.promocoes-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+}
+
+.promocoes-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, #ff6b6b, #ffcb6b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.promocoes-description {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.promocoes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.promocao-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.promocao-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.promocao-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.promocao-icon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  color: #ff6b6b;
+}
+
+.promocao-tag {
+  background: linear-gradient(45deg, #ff6b6b, #ffcb6b);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.promocao-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.promocao-content p {
+  color: #cccccc;
+  margin-bottom: 1.5rem;
+}
+
+.promocao-detalhes {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.promocao-detalhes li {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.promocao-detalhes li::before {
+  content: '•';
+  color: #ff6b6b;
+  position: absolute;
+  left: 0;
+}
+
+.promocao-preco {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.preco-antigo {
+  text-decoration: line-through;
+  color: #999999;
+  font-size: 1.1rem;
+}
+
+.preco-atual {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.preco-desconto {
+  background: #ff6b6b;
+  color: #ffffff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-weight: bold;
+}
+
+.promocao-botao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(45deg, #ff6b6b, #ffcb6b);
+  color: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.promocao-botao:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+.promocoes-info {
+  padding: 4rem 2rem;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.info-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.info-container h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+.info-lista {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.info-lista li {
+  color: #cccccc;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.info-lista li:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .promocoes-description {
+    font-size: 1rem;
+  }
+
+  .promocoes-grid {
+    grid-template-columns: 1fr;
+    padding: 2rem 1rem;
+  }
+
+  .promocao-card {
+    padding: 1.5rem;
+  }
+
+  .promocao-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .promocao-preco {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .promocoes-hero {
+    height: 200px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .promocoes-description {
+    font-size: 0.9rem;
+  }
+
+  .promocao-tag {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .promocao-botao {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .info-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .info-lista {
+    grid-template-columns: 1fr;
+  }
+}

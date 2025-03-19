@@ -1,52 +1,80 @@
-.floatingButton {
+.floating-buttons {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #f90000;
-  color: white;
-  border: none;
-  border-radius: 10%;
-  width: 150px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  font-size: 15px;
-  font-weight: bold;
-  transition: transform 0.2s, background-color 0.2s;
-  text-decoration: none;
+  bottom: 2rem;
+  right: 2rem;
   z-index: 1000;
 }
 
-.floatingButton:hover {
-  transform: scale(1.1);
-  background-color: #ff3838;
+.floating-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  background: linear-gradient(45deg, #25D366, #128C7E);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
-.floatingButton:active {
-  transform: scale(0.9);
+.floating-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
 }
 
-.floatingButton > img {
-  width: 40px;
+.floating-button:active {
+  transform: translateY(0);
 }
 
-#floatingButtonIcon {
+.whatsapp-icon {
+  font-size: 1.5rem;
+}
+
+.mobile {
   display: none;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  border-radius: 50%;
 }
 
-
-@media (max-width: 600px) {
-  .floatingButton {
-display: none;
+@media (max-width: 768px) {
+  .floating-buttons {
+    bottom: 1.5rem;
+    right: 1.5rem;
   }
-  #floatingButtonIcon {
+
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
     display: flex;
-    border-radius: 100%;
-    width: 60px;
-    height: 60px;
   }
 
+  .whatsapp-icon {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-buttons {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .mobile {
+    width: 50px;
+    height: 50px;
+  }
+
+  .whatsapp-icon {
+    font-size: 1.5rem;
+  }
 }

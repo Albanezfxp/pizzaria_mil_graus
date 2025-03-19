@@ -1,16 +1,29 @@
 import "./FloatingButton.css";
-import deliveryIcon from "../../../../assets/icons8-pizza-100.png";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function FloatingButton() {
+  const whatsappLink =
+    "https://l.instagram.com/?u=https%3A%2F%2Fwa.me%2Fmessage%2FU374E6HHWC7WC1%3Ffbclid%3DPAZXh0bgNhZW0CMTEAAaYxpQIMmphCQJh7GlFVJUQpaPAoHeeEUKw4QY90OMH8pCAE09kNTL41-k0_aem_zZSHjqqzkO7siAEviizVGw&e=AT29-Rhi6UWmfhMpIVO1nmh0EHmUn0tBOzbfxSjbKDyZKv4E302xFNgRgNrP84FCmuXEmgtcYmB086-YVeM3nl4YAaoQIWDYyIsV5WHw0suuUFm4RqrWYYg";
+
   return (
-    <>
-      <a href="https://web.whatsapp.com/send?autoload=1&app_absent=0&phone=558393291827&text=Ol%C3%A1%2C+boa+noite%21+Gostaria+de+fazer+um+pedido%21%F0%9F%98%86%F0%9F%A5%B0" target="_blank" className="floatingButton" id="floatingButton">
-        <img src={deliveryIcon} alt="iconPizza" />
-        Pedir agora
+    <div className="floating-buttons">
+      <a
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="floating-button desktop"
+      >
+        <FaWhatsapp className="whatsapp-icon" />
+        <span>Pedir Agora</span>
       </a>
-      <a href="https://web.whatsapp.com/send?autoload=1&app_absent=0&phone=558393291827&text=Ol%C3%A1%2C+boa+noite%21+Gostaria+de+fazer+um+pedido%21%F0%9F%98%86%F0%9F%A5%B0" target="_blank"className="floatingButton" id="floatingButtonIcon">
-        <img src={deliveryIcon} alt="iconPizza" />
+      <a
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="floating-button mobile"
+      >
+        <FaWhatsapp className="whatsapp-icon" />
       </a>
-    </>
+    </div>
   );
 }
